@@ -1,0 +1,137 @@
+body {
+  font-family: "Quattrocento";
+  font-size: 20pt;
+  color: #551111; }
+  body h1, body h2, body h3, body h4, body h5, body h6 {
+    font-family: "TrajanusBricks"; }
+
+h1 {
+  font-size: 150%;
+  string-set: monom content(); }
+
+h4 {
+  counter-increment: sectionhead; }
+
+table {
+  font: inherit;
+  width: 100%;
+  border-collapse: collapse; }
+  table .summa {
+    text-align: right; }
+
+#summary {
+  margin: 1em;
+  font-size: 50%; }
+  @media print {
+    #summary {
+      margin-top: 15em; } }
+
+#contact {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+#yeardiff {
+  content: prince-script(yearDiff, 1993); }
+
+.rhetorical {
+  font-family: "Goudy Bookletter 1911", "Trajan Pro";
+  page-break-after: always;
+  text-align: justify;
+  width: 60%;
+  margin-left: 20%;
+  font-size: 75%; }
+  .rhetorical:first-letter {
+    font-family: "TrajanusBricksXtra"; }
+
+.entry, .etcetera {
+  border: 1px solid #000;
+  padding: 0.25em;
+  font-size: 60%;
+  margin: 1em;
+  color: #111111;
+  page-break-inside: avoid;
+  border-radius: 0.25em 0.25em 0.25em 0.25em; }
+
+.period {
+  padding: 1px;
+  border-radius: 0.25em 0.25em 0.25em 0.25em;
+  font-style: italic;
+  font-family: "Trajan Pro";
+  font-size: 95%; }
+  .period:first-letter {
+    color: #551111; }
+  .period .gap {
+    margin-right: 0.5em;
+    font-family: "Goudy Bookletter 1911", "Trajan Pro";
+    font-style: normal; }
+
+#nowstuff {
+  vertical-align: bottom; }
+
+#addy {
+  string-set: mailaddy content(); }
+
+@media print {
+  #monom {
+    line-height: 0em;
+    text-align: right; } }
+
+#tagline {
+  font-size: 50%;
+  font-family: "Trajan Pro"; }
+  @media print {
+    #tagline {
+      line-height: 0em;
+      text-align: right; } }
+
+@page {
+  size: a4 landscape;
+  font-family: "Avenir Book";
+  @top-center {
+    content: string(mailaddy); }
+
+  @bottom-left {
+    content: string(monom); }
+
+  @bottom-left-corner {}
+  @bottom-right-corner {
+    content: "Page " counter(page,upper-roman); }
+
+  @bottom-center {
+    content: prince-script(thisYear); } }
+
+@page :first {
+  @top {
+    content: ""; }
+
+  @bottom-right-corner {
+    content: ""; }
+
+  @bottom-right {
+    content: ""; }
+
+  @bottom-center {
+    content: prince-script(thisYear); }
+
+  @bottom-left {
+    content: ""; } }
+
+ol {
+  list-style: lower-roman; }
+
+.footnote {
+  font-size: 85%;
+  font-family: "Goudy Bookletter 1911", "Trajan Pro";
+  float: footnote;
+  display: inline; }
+  @media screen {
+    .footnote {
+      margin-left: 0.5em; }
+      .footnote:before {
+        content: "("; }
+      .footnote:after {
+        content: ")"; } }
+  .footnote .linked:after {
+    content: " (page " target-counter(attr(href), page, upper-roman) ")"; }
+  .footnote:footnote-marker {
+    font-style: italic; }
